@@ -1,0 +1,155 @@
+body {
+    padding: 0;
+    overflow: hidden;
+    font-family: colfax, helvetica, arial, sans-serif;
+}
+
+.linkCC { color:white }
+/*.map02 {
+    position: absolute;
+    right: 0px;
+    left: 20%;
+    height: 100%;
+    width:40%
+    top: 0;
+}*/
+
+.map01 {
+    position: absolute;
+    left: 25%;
+    height: 100%;
+    width:75%;
+    top: 0;
+}
+
+.map02 {
+    position: absolute;
+    left: 25%;
+    height: 100%;
+    width:75%;
+    top: 0;
+}
+
+#sidebar {
+  top: 0;
+}
+
+.sidebar {
+    position: absolute;
+    left: 0px;
+    width:25%;
+    top:50px;
+    bottom: 0;
+    overflow-y: auto;
+    padding-left: 20px;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-weight: normal;
+    color: #666;
+    margin-top: 10px,
+}
+
+.street-selected path {
+  -webkit-animation: active 5s ease-out;
+  -webkit-animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes active {
+    0% {opacity: 1;}
+    50% {opacity: 1; stroke-width: 10;}
+    100% {opacity: 1;}
+}
+
+.info {
+    padding: 6px 8px;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+
+/*.info h4 {
+    font-size: 14px;
+    margin: 0 0 5px;
+    color: #777;
+}*/
+
+/*.info h3 {
+    font-size: 12px;
+    margin: 0 0 0px;
+    color: #333;
+}*/
+
+.info canvas {
+    margin: 5px 0 0;
+    opacity: 0.8;
+}
+
+.info h5 {
+    margin: 0 0 0px;
+    color: #111;
+}
+
+.info h6 {
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.input-text {
+    width: 150px;
+}
+
+#draw {
+    margin-top:10px;
+}
+
+#draw2 {
+    margin-top:10px;
+    margin-left: 5px;
+}
+
+#stop {
+    margin-top:10px;
+    margin-left: 5px;
+}
+
+#backToPickup{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.leaflet-container path{
+  transition: fill .75s;
+}
+
+.item {
+    margin-left:0px;
+    margin-top:20px;
+    margin-right:60px;
+    padding: 10px;
+    background-color: #eee;
+}
+
+#smallitem {
+  margin-top: 10px;
+    padding-left: 5px;
+    width: 100px;
+    height:20px;
+    background-color:#a5dde2;
+    color: #FFFFFF;
+}
+
+.item:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.item-heading {
+    font-size: 18px;
+    margin-top: 0;
+    font-weight: bold;
+}
