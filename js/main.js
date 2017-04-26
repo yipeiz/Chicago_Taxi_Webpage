@@ -1,11 +1,12 @@
 
 var queryUrlHead = 'https://www.googleapis.com/fusiontables/v2/query?sql=';
 var queryUrlTail = '&key=AIzaSyAAv8-7V5dOOKldXwnsqxK6Z8mw0qgbeOc';
-var tableId  = '1QOI_T6AT-dAOkQUEwEJd7AaSo63dWUIXdSpmpa3J';
-var tableId2 = '15sLQ7fajmvYW3AQCvReYwuxBC4nk2C2JUVx2TV12';
-var tableId3 = '1GzTCFrO-iEPyMcgde0V5k7z6YqMgGoe5ifHzcrJE';
-var CCId     = '1KYd8-AhEaUBZ9XKyWEM-vNwhHTszuHoxLGV3Aldh';
-var CWSId    = '1Clc6OZA2Cp1Zi8XEXGfCUr_-UhgptMxv9vuoZk9m';
+var tableId131415  = '1e2B-s3AjAzd4IEGbpTjQUkbcXpb2ikvYgjL4XT_f';
+var tableId16 = '1-RRrGI7FrJHRjFwaKmWPWRN9DLEDVBLyrVCiCvfV';
+var tableId2  = '15sLQ7fajmvYW3AQCvReYwuxBC4nk2C2JUVx2TV12';
+var tableId3  = '1GzTCFrO-iEPyMcgde0V5k7z6YqMgGoe5ifHzcrJE';
+var CCId      = '1KYd8-AhEaUBZ9XKyWEM-vNwhHTszuHoxLGV3Aldh';
+var CWSId     = '1Clc6OZA2Cp1Zi8XEXGfCUr_-UhgptMxv9vuoZk9m';
 
 var commBoundStr = "https://raw.githubusercontent.com/yipeiz/Chicago_Taxi/master/final_app/present/file/sortedMap.geojson";
 var ifTotal; // if it is on pickup mode or Drop-off mode
@@ -29,7 +30,9 @@ var today = new Date();
 var liveHour = today.getHours() + 1;
 var liveDate = today.toISOString().substring(0, 10);
 
-console.log(liveDate);
+// console.log(liveDate);
+
+$("#myModal").modal("show");
 
 function disableButtons(){
     $('#draw').prop('disabled', true);
@@ -39,6 +42,7 @@ function disableButtons(){
 
 disableButtons();
 $('#draw4').prop('disabled', true);
+$('.prediction').hide();
 
 $('ul#myTabs').click(function(){
     mySwitch += 1;
@@ -74,15 +78,18 @@ $.ajax(commBoundStr).done(function(theD){
     function getData(){
         theDate = document.getElementById("myDate").value;
         theHour = document.getElementById("myHour").value;
-        console.log(theDate);
-        console.log(liveDate);
-        console.log("2017-05-01");
-        console.log(theHour);
+        var theYear = theDate.substring(0,4);
+        console.log(theYear);
+        // console.log(liveDate);
+        // console.log(theHour);
 
         if (parseInt(theHour) > 24) {
             alert("Please reinput the hour!");
             theHour = "1";
+            $('#myHour').val(1);
         }
+
+        var tableId = theYear === "2016" ? tableId16: tableId131415;
 
         var query = "SELECT * FROM " + tableId + " WHERE 'Hour' = " + theHour +
         " AND 'StartDay' = '" + theDate + "'";// + "' AND 'PickupCommunityArea' = " + "01";
@@ -95,6 +102,8 @@ $.ajax(commBoundStr).done(function(theD){
         $('#draw').prop('disabled', false);
         $('#draw2').prop('disabled', false);
         $('#stop').prop('disabled', false);
+        $('.prediction').show();
+
         ifTotal = 1;
 
         var myRows = resp.rows;
