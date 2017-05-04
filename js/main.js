@@ -500,7 +500,7 @@ $.ajax(commBoundStr).done(function(theD){
     function getData3(){
       //liveHour liveDate
         var query = "SELECT * FROM " + tableId3 + " WHERE 'Hour' = " + liveHour.toString() +
-        " AND 'StartDay' = '" + "2017-05-01" + "'" ;
+        " AND 'StartDay' = '" + liveDate + "'" ;
         var queryurl = encodeURI(queryUrlHead + query + queryUrlTail);
         var jqxhr = $.get(queryurl, dataHandler3);
     }
@@ -741,7 +741,7 @@ $.ajax(commBoundStr).done(function(theD){
 });
 
 function getGameCC(){
-    var query = "SELECT * FROM " + CCId + " WHERE 'START.DATE' = '" + liveDate +"'" ;//"2017-4-10'";
+    var query = "SELECT * FROM " + CCId + " WHERE 'START.DATE' = '" + liveDate + "'" ;//"2017-4-10'";
     var queryurl = encodeURI(queryUrlHead + query + queryUrlTail);
     var jqxhr = $.get(queryurl, dataHandlerCC);
 }
